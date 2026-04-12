@@ -1,0 +1,3 @@
+// Day 1 — OTT Finder India
+// More coming soon...
+console.log("OTT Finder loaded ✅");
