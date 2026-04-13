@@ -17,5 +17,6 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
 - Day 1 — Project setup & folder structure ✅
 
 ---
-Built with ❤️ as a portfolio project.
 - Day 2 — Homepage UI with navbar, hero & search bar ✅
+---
+Built with ❤️ as a portfolio project.
