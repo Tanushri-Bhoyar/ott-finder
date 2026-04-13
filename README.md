@@ -18,3 +18,4 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
 
 ---
 Built with ❤️ as a portfolio project.
+- Day 2 — Homepage UI with navbar, hero & search bar ✅
