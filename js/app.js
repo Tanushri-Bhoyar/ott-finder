@@ -1,14 +1,10 @@
-// ===== Day 3 — OMDB API Integration =====
-
-const API_KEY = CONFIG.API_KEY;// 🔴 We'll hide this properly soon
+const API_KEY = "382f4805";
 const BASE_URL = "https://www.omdbapi.com/";
 
-// DOM Elements
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("resultsContainer");
 
-// ===== SEARCH TRIGGER =====
 searchBtn.addEventListener("click", () => {
   const query = searchInput.value.trim();
   if (query === "") return;
@@ -19,38 +15,35 @@ searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") searchBtn.click();
 });
 
-// ===== FETCH MOVIES FROM OMDB =====
 async function searchMovies(query) {
   showLoading();
+  console.log("Searching:", query);
 
   try {
     const res = await fetch(
       `${BASE_URL}?s=${encodeURIComponent(query)}&apikey=${API_KEY}`
     );
     const data = await res.json();
+    console.log("Data:", data);
 
     if (data.Response === "False") {
       showEmpty();
       return;
     }
-
     displayResults(data.Search);
 
-  } catch (error) {
-    console.error("API Error:", error);
+  } catch (err) {
+    console.error("Error:", err);
     showError();
   }
 }
 
-// ===== DISPLAY MOVIE CARDS =====
 function displayResults(results) {
   resultsContainer.innerHTML = "";
-
   results.forEach((item) => {
-    const poster =
-      item.Poster !== "N/A"
-        ? item.Poster
-        : "https://via.placeholder.com/500x750?text=No+Image";
+    const poster = item.Poster !== "N/A"
+      ? item.Poster
+      : "https://via.placeholder.com/500x750?text=No+Image";
 
     const card = document.createElement("div");
     card.classList.add("movie-card");
@@ -64,12 +57,10 @@ function displayResults(results) {
         <p>${item.Year}</p>
       </div>
     `;
-
     resultsContainer.appendChild(card);
   });
 }
 
-// ===== LOADING STATE =====
 function showLoading() {
   resultsContainer.innerHTML = `
     <div class="status-msg">
@@ -79,7 +70,6 @@ function showLoading() {
   `;
 }
 
-// ===== EMPTY STATE =====
 function showEmpty() {
   resultsContainer.innerHTML = `
     <div class="status-msg">
@@ -89,7 +79,6 @@ function showEmpty() {
   `;
 }
 
-// ===== ERROR STATE =====
 function showError() {
   resultsContainer.innerHTML = `
     <div class="status-msg">
