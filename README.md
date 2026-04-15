@@ -19,4 +19,5 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
 ---
 - Day 2 — Homepage UI with navbar, hero & search bar ✅
 ---
+ Day 3 — OMDB API integrated, movie search working ✅
 Built with ❤️ as a portfolio project.
