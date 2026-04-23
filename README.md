@@ -23,4 +23,7 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
  ---
  - Day 4 — Movie detail modal with full info, cast, rating ✅
  ---
+ - 
+Day 5 — OTT platform availability for India added ✅
+---
 Built with ❤️ as a portfolio project.

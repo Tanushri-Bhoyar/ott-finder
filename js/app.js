@@ -2,6 +2,7 @@
 
 const API_KEY = "382f4805";
 const BASE_URL = "https://www.omdbapi.com/";
+const RAPID_API_KEY = "6f8fad62b9msh0824ee8ad26f863p1e2db8jsn6681e172bc46";
 
 // DOM Elements
 const searchBtn = document.getElementById("searchBtn");
@@ -109,6 +110,7 @@ async function openModal(imdbID) {
       `${BASE_URL}?i=${imdbID}&plot=full&apikey=${API_KEY}`
     );
     const movie = await res.json();
+    fetchOTT(imdbID);
 
     // Fill modal with data
     document.getElementById("modalTitle").textContent = movie.Title;
@@ -157,4 +159,66 @@ function showError() {
       <p>Something went wrong. Please try again.</p>
     </div>
   `;
+}
+// ===== FETCH OTT AVAILABILITY =====
+async function fetchOTT(imdbID) {
+  const ottContainer = document.getElementById("modalOTT");
+  ottContainer.innerHTML = `<span style="color:#888">Checking platforms...</span>`;
+
+  try {
+    const res = await fetch(
+      `https://streaming-availability.p.rapidapi.com/shows/${imdbID}?country=in`,
+      {
+        headers: {
+          "x-rapidapi-key": RAPID_API_KEY,
+          "x-rapidapi-host": "streaming-availability.p.rapidapi.com"
+        }
+      }
+    );
+
+    const data = await res.json();
+
+    // Get India streaming options
+    const indiaStreaming = data?.streamingOptions?.in;
+
+    if (!indiaStreaming || indiaStreaming.length === 0) {
+      ottContainer.innerHTML = `<span class="ott-coming">Not available on Indian OTT platforms</span>`;
+      return;
+    }
+
+    // Build OTT badges
+    ottContainer.innerHTML = "";
+    indiaStreaming.forEach((option) => {
+      const badge = document.createElement("div");
+      badge.classList.add("ott-badge");
+
+      const serviceColors = {
+        netflix: "#e50914",
+        prime: "#00a8e0",
+        hotstar: "#1f80e0",
+        jiocinema: "#8b2fc9",
+        sonyliv: "#e8181c",
+        zee5: "#7b2d8b",
+      };
+
+      const serviceName = option.service?.id || "unknown";
+      const color = serviceColors[serviceName] || "#444";
+      const type = option.type || "subscription";
+      const price = option.price?.formatted || "";
+
+      badge.style.borderColor = color;
+      badge.innerHTML = `
+        <span class="ott-name" style="color:${color}">
+          ${option.service?.name || serviceName}
+        </span>
+        <span class="ott-type">${type} ${price}</span>
+      `;
+
+      ottContainer.appendChild(badge);
+    });
+
+  } catch (err) {
+    console.error("OTT Error:", err);
+    ottContainer.innerHTML = `<span class="ott-coming">Could not fetch OTT data</span>`;
+  }
 }
