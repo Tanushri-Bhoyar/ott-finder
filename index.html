@@ -19,6 +19,10 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Watchlist</a></li>
       </ul>
+      <ul class="nav-links">
+  <li><a href="#" onclick="showHome()">Home</a></li>
+  <li><a href="#" onclick="showWatchlist()">❤️ Watchlist</a></li>
+</ul>
     </nav>
 
     <!-- HERO SECTION -->
@@ -56,6 +60,16 @@
         <!-- Movie cards will appear here (Day 3) -->
       </div>
     </section>
+    
+    <!-- WATCHLIST SECTION -->
+<section id="watchlistSection" class="hidden">
+  <div class="watchlist-header">
+    <h2>❤️ My Watchlist</h2>
+    <p>Movies and series you want to watch</p>
+  </div>
+  <div id="watchlistContainer" class="results-grid"></div>
+</section>
+
     <!-- MOVIE DETAIL MODAL -->
   <div id="movieModal" class="modal-overlay hidden">
   <div class="modal-box">
@@ -74,6 +88,10 @@
       <!-- RIGHT — Details -->
       <div class="modal-details">
         <h2 id="modalTitle"></h2>
+          <button class="watchlist-btn" id="watchlistBtn" onclick="toggleWatchlist()">
+    ❤️ Add to Watchlist
+  </button>
+
 
         <div class="modal-meta">
           <span id="modalYear" class="meta-tag">📅</span>

@@ -26,4 +26,5 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
  - 
 Day 5 — OTT platform availability for India added ✅
 ---
+- Day 6 — Watchlist feature with localStorage ✅
 Built with ❤️ as a portfolio project.

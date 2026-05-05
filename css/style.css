@@ -549,3 +549,80 @@ body {
   color: #888888;
   text-transform: capitalize;
 }
+/* ===========================
+   WATCHLIST BUTTON
+=========================== */
+.watchlist-btn {
+  background: transparent;
+  border: 1px solid #e50914;
+  color: #e50914;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.watchlist-btn:hover {
+  background: #e50914;
+  color: white;
+}
+
+.watchlist-btn.added {
+  background: #e50914;
+  color: white;
+}
+
+/* ===========================
+   WATCHLIST SECTION
+=========================== */
+#watchlistSection {
+  padding: 40px 60px;
+}
+
+.watchlist-header {
+  margin-bottom: 30px;
+}
+
+.watchlist-header h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.watchlist-header p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   EMPTY WATCHLIST
+=========================== */
+.empty-watchlist {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.empty-watchlist p:first-child {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   HIDDEN CLASS
+=========================== */
+.hidden {
+  display: none !important;
+}
+
+/* ===========================
+   RESPONSIVE WATCHLIST
+=========================== */
+@media (max-width: 768px) {
+  #watchlistSection {
+    padding: 30px 16px;
+  }
+}
