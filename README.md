@@ -19,12 +19,15 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
 ---
 - Day 2 — Homepage UI with navbar, hero & search bar ✅
 ---
- Day 3 — OMDB API integrated, movie search working ✅
+ - Day 3 — OMDB API integrated, movie search working ✅
  ---
  - Day 4 — Movie detail modal with full info, cast, rating ✅
  ---
  - 
-Day 5 — OTT platform availability for India added ✅
+- Day 5 — OTT platform availability for India added ✅
 ---
-- Day 6 — Watchlist feature with localStorage ✅
+ - Day 6 — Watchlist feature with localStorage ✅
+ ---
+ - Day 7 - Complete final version - full OTT database, polished UI ✅
+ ---
 Built with ❤️ as a portfolio project.
