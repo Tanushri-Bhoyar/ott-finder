@@ -29,4 +29,4 @@ on Indian OTT platforms like Netflix, Prime Video, JioCinema, and Hotstar.
  ---
  - Day 7 - Complete final version - full OTT database, polished UI ✅
  ---
-Built with ❤️ as a portfolio project.
+ - Built with ❤️ as a portfolio project.
